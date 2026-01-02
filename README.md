@@ -31,5 +31,8 @@ python manage.py runserver
 
 Откройте в браузере: http://127.0.0.1:8000/
 # Административный доступ
+Создать суперпользователя для доступа в админку:
+python manage.py createsuperuser 
+
 Логин: admin  
 Пароль: admin123
