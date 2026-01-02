@@ -1,0 +1,10 @@
+<h1>Календарный план-график </h1>
+
+{% for month, plans in calendar.items %}
+  <h2>{{ month }}</h2>
+  <ul>
+  {% for p in plans %}
+    <li>{{ p.planned_date|date:"d.m.Y" }} — {{ p.get_work_type_display }} — {{ p.equipment.name }}</li>
+  {% endfor %}
+  </ul>
+{% endfor %}

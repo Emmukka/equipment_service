@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Система ТО и ремонтов</title>
+</head>
+<body>
+
+<h1>Панель управления</h1>
+
+<hr>
+
+<h2>Оборудование</h2>
+<ul>
+{% for e in equipments %}
+    <li>
+        {{ e.name }} ({{ e.equipment_type }})
+        —
+        <a href="/generate/{{ e.id }}/">Сформировать план</a>
+    </li>
+{% empty %}
+    <li>Оборудование отсутствует</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<h2>Ближайшие работы</h2>
+<ul>
+{% for p in plans %}
+    <li>
+        {{ p.planned_date|date:"d.m.Y" }}
+        —
+        {{ p.get_work_type_display }}
+        —
+        {{ p.equipment.name }}
+    </li>
+{% empty %}
+    <li>План-график пуст</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<h2>Навигация</h2>
+<ul>
+    <li><a href="/admin/">Администрирование</a></li>
+    <li><a href="/equipment/">Все оборудование</a></li>
+    <li><a href="/plans/">Полный план-график</a></li>
+</ul>
+
+</body>
+</html>

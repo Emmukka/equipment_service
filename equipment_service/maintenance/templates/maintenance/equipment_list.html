@@ -1,0 +1,13 @@
+<h1>Оборудование</h1>
+
+<ul>
+{% for e in equipments %}
+  <li>
+    {{ e.name }} ({{ e.equipment_type }})
+    —
+   <a href="/generate/{{ e.id }}/">
+      Сформировать план
+    </a>
+  </li>
+{% endfor %}
+</ul>
